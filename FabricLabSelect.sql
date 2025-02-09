@@ -1,7 +1,7 @@
 --1. Выбрать все данные о владельцах фабрики
 SELECT * 
 FROM owner;
-
+--comment
 --2. Выбрать название цеха, температуру и комментарий. Результат отсортировать по названию в порядке обратном лексикографическому. 
 SELECT w.workshop_name, w.temperature, c.comment_text
 FROM workshop w
