@@ -1,3 +1,13 @@
+
+
+/*16. Для каждого заказа вывести количество различных продуктов, в него входящих. В результат включить только те заказы,
+в которых более одного продукта.*/
+SELECT CO.order_id, COUNT(DISTINCT CO_P.product_id) AS product_count
+FROM client_order CO
+INNER JOIN client_order_product CO_P ON CO.order_id = CO_P.order_id
+GROUP BY CO.order_id
+HAVING COUNT(DISTINCT CO_P.product_id) > 1;
+
 --1. Выбрать все данные о владельцах фабрики
 SELECT * 
 FROM owner;
@@ -94,14 +104,6 @@ INNER JOIN client_order CO ON CO_P.order_id = CO.order_id
 INNER JOIN client_delivery_place CDP ON CO.client_id = CDP.client_id
 INNER JOIN delivery_place DP ON CDP.place_id = DP.place_id
 GROUP BY P.product_name, P.price, M.measure_name, CO.order_id, CO.acceptance_date, DP.place_id;
-
-/*16. Для каждого заказа вывести количество различных продуктов, в него входящих. В результат включить только те заказы,
-в которых более одного продукта.*/
-SELECT CO.order_id, COUNT(DISTINCT CO_P.product_id) AS product_count
-FROM client_order CO
-INNER JOIN client_order_product CO_P ON CO.order_id = CO_P.order_id
-GROUP BY CO.order_id
-HAVING COUNT(DISTINCT CO_P.product_id) > 1;
 
 /*17. Для каждого цеха каждой фабрики вывести количество
 различных продуктов, им производимых. Результат отсортировать
