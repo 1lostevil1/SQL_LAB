@@ -1,3 +1,4 @@
+
 DROP TABLE IF EXISTS client_delivery_place;
 DROP TABLE IF EXISTS client_order_product;
 DROP TABLE IF EXISTS client_order;
