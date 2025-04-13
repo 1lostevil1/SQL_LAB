@@ -21,6 +21,11 @@ DROP TABLE IF EXISTS "position";
 DROP TABLE IF EXISTS "order";
 DROP TABLE IF EXISTS deliveryType;
 DROP TABLE IF EXISTS producer;
+
+
+--
+
+
 DROP TABLE IF EXISTS storage_ingredient;
 DROP TABLE IF EXISTS "storage";
 DROP TABLE IF EXISTS fabric;
