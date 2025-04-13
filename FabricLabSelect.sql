@@ -41,14 +41,7 @@ WHERE year_opened IN (1990, 1998, 1996, 2003, 2007)
 ORDER BY year_opened ASC, 
 		 area DESC;
 
---8. Выбрать данные о цехах, в комментариях к которым есть символы «_», «-», «\» и «%».
-SELECT w.* , c.comment_text
-FROM workshop w
-JOIN "comment" c ON w.workshop_id = c.workshop_id
-WHERE c.comment_text LIKE '%@_%' escape '@'
-AND c.comment_text LIKE '%-%'
-AND c.comment_text LIKE '%@%%' escape '@'
-AND c.comment_text LIKE '%@\%' escape '@';
+
 
 --9. Найти общее количество заказов
 SELECT COUNT(*) AS total_orders 
@@ -58,6 +51,15 @@ FROM "order";
 SELECT MAX(price) AS max_price, 
 	   MIN(price) AS min_price 
 FROM product;
+
+--8. Выбрать данные о цехах, в комментариях к которым есть символы «_», «-», «\» и «%».
+SELECT w.* , c.comment_text
+FROM workshop w
+JOIN "comment" c ON w.workshop_id = c.workshop_id
+WHERE c.comment_text LIKE '%@_%' escape '@'
+AND c.comment_text LIKE '%-%'
+AND c.comment_text LIKE '%@%%' escape '@'
+AND c.comment_text LIKE '%@\%' escape '@';
 
 --11. Найти среднюю площадь фабрик. 
 SELECT AVG(area) AS average_area 
